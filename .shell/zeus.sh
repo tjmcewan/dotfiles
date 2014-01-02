@@ -1,0 +1,6 @@
+alias z='zeus'
+alias zst='zeus start'
+alias zs='zeus server --binding=127.0.0.1'
+alias zc='zeus console'
+alias zr='zeus rspec'
+alias zk='zeus cucumber -r features'

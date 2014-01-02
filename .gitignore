@@ -1,0 +1,15 @@
+# ignore everything
+*
+
+# new shell files are also ignored by default
+# to track *one* run: git add -f .shell/example.sh
+# to track *all* of them, uncomment the following 2 lines
+# !.shell/
+# !.shell/*.sh
+
+!.ackrc
+!.gemrc
+!.rdebugrc
+!.gitconfig
+!.gitignore
+!.zshrc

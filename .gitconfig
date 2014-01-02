@@ -1,0 +1,31 @@
+[user]
+	name = Tim McEwan
+	email = tim@mcewan.it
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = subl -w
+[color]
+	ui = true
+[push]
+	default = current
+[rerere]
+	enabled = false
+[url "https://github.com/"]
+	insteadOf = git://github.com/
+[branch]
+	autosetupmerge = true
+	autosetuprebase = remote
+[merge]
+	defaultToUpstream = true
+[alias]
+	bd = branch -D
+	rh = reset --hard
+	edit = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; $EDITOR `f`"
+	cb = checkout -b
+	ps = push -u
+	pl = !git fetch -p && git rebase
+	pr = "!f() { git remote -v | grep origin -m 1 | cut -d":" -f2 | cut -d"/" -f1 ; }; g() { git symbolic-ref --short HEAD ; }; hub pull-request -h `f`:`g`"
+[credential]
+	helper = osxkeychain
+[diff]
+	algorithm = patience

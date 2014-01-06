@@ -11,3 +11,6 @@ alias mgon='launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
 
 alias rdof='launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.redis.plist'
 alias rdon='launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.redis.plist'
+
+alias mcof='launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist'
+alias mcon='launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist'

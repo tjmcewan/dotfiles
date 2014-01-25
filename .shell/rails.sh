@@ -20,3 +20,13 @@ rs () {
     rails server --debugger --binding=127.0.0.1 $@
   fi
 }
+
+rails_versions() {
+  for gemfile in **/Gemfile.lock; do
+    echo "$fg[magenta]"
+    echo $gemfile | sed "s_/Gemfile.lock__g"
+    echo "$fg[green]"
+    cat $gemfile | grep ' rails (\d'
+    echo "$reset_color"
+  done
+}

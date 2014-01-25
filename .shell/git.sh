@@ -46,14 +46,29 @@ gstp() { git stash pop stash@{"${1:-0}"} }
 gstsh() { git stash show stash@{"${1:-0}"} }
 gstd() { git stash drop stash@{"${1:-0}"} }
 
-gitme () {
+gitme() {
   git init
   git commit -m 'blank slate' --allow-empty
   git add --all
   git commit -m 'pristine'
 }
 
-alias update_repos='for repo in **/.git; do cd $repo; git fetch; cd -; done'
-alias update_remotes='for remote in $(git remote); do git fetch $remote ; done'
+update_repos() {
+  for repo in $(echo **/.git | sed "s/.git//g"); do
+    cd $repo
+    echo "$fg[green]# updating $fg[magenta]$repo $reset_color"
+    git fetch -p
+    git checkout master && git rebase
+    git checkout -
+    cd - 1>/dev/null
+    echo ""
+  done
+}
+
+update_remotes() {
+  for remote in $(git remote); do
+    git fetch $remote
+  done
+}
 
 alias gx='gitx'

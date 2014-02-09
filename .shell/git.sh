@@ -53,6 +53,9 @@ gitme() {
   git commit -m 'pristine'
 }
 
+alias gblame='git gui blame 2>/dev/null' # tried newer tcl-tk; no dice. /dev/null it is!
+                                         # usage: $ gblame lib/example.rb
+
 update_repos() {
   for repo in $(echo **/.git | sed "s/.git//g"); do
     cd $repo

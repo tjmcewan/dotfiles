@@ -3,3 +3,20 @@ source /usr/local/opt/chruby/share/chruby/auto.sh
 
 # to set the default ruby to ruby 2:
 # echo "ruby-2" > ~/.ruby-version
+
+if [[ -n "$ZSH_VERSION" ]]; then
+	if [[ "$preexec_functions" == *chruby_auto* ]] ; then
+		if [[ "$preexec_functions" != *add_binstubs_path* ]] ; then
+			preexec_functions+=("add_binstubs_path")
+		fi
+	fi
+fi
+
+function add_binstubs_path() {
+	BINSTUB_PATH="./.bundle/binstubs";
+	PATH=":$PATH:";
+	PATH="${PATH//:$BINSTUB_PATH:/:}";
+	PATH="${PATH#:}"; PATH="${PATH%:}";
+
+	PATH="$BINSTUB_PATH:$PATH";
+}

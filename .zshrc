@@ -3,6 +3,7 @@ export PATH="/usr/local/heroku/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/
 export EDITOR='subl'
 
 # needed to compile some older software (ruby 1.8 ?)
+# do this first: `brew tap homebrew/versions && brew install apple-gcc42`
 # export CC=/usr/local/bin/gcc-4.2
 
 # fast file move/rename; run `mmv` for usage

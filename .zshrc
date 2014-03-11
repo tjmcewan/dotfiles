@@ -1,3 +1,4 @@
+export BINSTUBS_PATH="./.bundle/bin"
 export PATH="/usr/local/heroku/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 export EDITOR='subl'

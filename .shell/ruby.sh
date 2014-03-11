@@ -1,9 +1,6 @@
-export RUBY_GC_MALLOC_LIMIT=90000000
-export RUBY_FREE_MIN=200000
-
 alias rv='ruby -v'
 
-# delete all gems; then install latest rake, bundler, & zeus
+# delete all gems; then install latest rake, bundler, etc.
 gemclear () {
   for i in `gem list --no-versions`; do
     gem uninstall -aIx $i

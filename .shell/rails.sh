@@ -22,11 +22,11 @@ rs () {
 }
 
 rails_versions() {
-  for gemfile in **/Gemfile.lock; do
-    echo "$fg[magenta]"
-    echo $gemfile | sed "s_/Gemfile.lock__g"
-    echo "$fg[green]"
-    cat $gemfile | grep ' rails (\d'
+  filename=Gemfile.lock
+  for gemfile in **/$filename; do
+    app=$(echo $gemfile | sed "s/\/$filename//g")
+    rails_version=$(cat $gemfile | grep ' rails (\d')
+    printf "$fg[magenta] $app: $fg[green] $rails_version"
     echo "$reset_color"
   done
 }

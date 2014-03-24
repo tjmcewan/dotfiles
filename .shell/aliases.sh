@@ -3,6 +3,7 @@ alias esp='$EDITOR ~/.shell ~/.ackrc ~/.gemrc ~/.gitconfig ~/.gitignore ~/.gitig
 alias ssp='source ~/.zshrc'
 
 alias ll='ls -Glah'
+alias l='ls -Glah'
 
 alias p='python'
 alias v='vagrant'

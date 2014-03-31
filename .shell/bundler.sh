@@ -10,9 +10,13 @@ bundler_apps() {
 }
 
 bundle_with_binstubs() {
+  bundle --binstubs=$BINSTUBS_PATH
+}
+
+bundle_all_with_binstubs() {
   for app in $(bundler_apps); do
     cd $app
-    bundle --binstubs=$BINSTUBS_PATH
+    $(bundle_with_binstubs)
     cd -
   done
 }

@@ -24,3 +24,7 @@ ruby_versions() {
     echo "$reset_color"
   done
 }
+
+rake_secret() {
+  ruby -r securerandom -e "p SecureRandom.hex(128)"
+}

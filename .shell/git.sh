@@ -76,6 +76,7 @@ update_remotes() {
 }
 
 # need to "export" the function for bash so GNU 'parallel' can see it.
+# http://stackoverflow.com/a/22738506/320438
 export bash_update_repo='() {
   echo ""
   echo ""

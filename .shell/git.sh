@@ -33,6 +33,7 @@ alias gra='git rebase --abort'
 alias gsh='git show HEAD'
 alias gshn='git show HEAD --name-only'
 alias ge='git edit' # edit function in ~/.gitconfig
+alias gx='gitx'
 alias gcoh='git checkout HEAD --' # reverts changes for whatever file is passed
                                   # usage: $ gcoh lib/example.rb
 alias gdmb='git diff $(git show-branch --merge-base)..HEAD'
@@ -73,5 +74,3 @@ update_remotes() {
     git fetch $remote
   done
 }
-
-alias gx='gitx'

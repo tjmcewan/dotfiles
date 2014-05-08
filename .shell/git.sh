@@ -74,3 +74,19 @@ update_remotes() {
     git fetch $remote
   done
 }
+
+# need to "export" the function for bash so GNU 'parallel' can see it.
+export bash_update_repo='() {
+  echo ""
+  echo ""
+  cd $1
+  echo "# updating $1"
+  git fetch -p
+  git checkout master && git rebase
+  git checkout -
+}'
+
+update_repos_parallel() {
+  # brew install parallel
+  SHELL=/bin/bash parallel bash_update_repo ::: $(echo **/.git | sed "s/.git//g")
+}

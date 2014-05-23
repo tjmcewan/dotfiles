@@ -4,7 +4,7 @@
 - install [brew](brew.sh) (`ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"`)
 - `brew install zsh`
 - `echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells`
-- `git clone https://github.com/jobfutures/dotfiles.git ~`
+- `git clone https://github.com/jobfutures/dotfiles.git ~/dotfiles`
 - `cd ~/dotfiles`
 - `for file in $(ls -A); do mv $file ../. ; done`
 - `rm ~/dotfiles`

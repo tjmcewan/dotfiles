@@ -1,5 +1,5 @@
-export BINSTUBS_PATH="./.bundle/binstubs"
-export PATH="/usr/local/heroku/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+export BINSTUBS_PATH="./bin:./.bundle/binstubs"
+export PATH="$HOME/.cabal/bin:/usr/local/heroku/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 export EDITOR='subl'
 

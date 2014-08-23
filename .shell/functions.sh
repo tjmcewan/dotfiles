@@ -41,3 +41,18 @@ monthly_changelog() {
 #   $(bundle_with_binstubs)
 #   cap staging deploy
 # }
+
+## this function exports other functions so they can be passed to another shell (bash, for instance)
+# exportf(){
+#     export $(echo $1)="`whence -f $1 | sed -e "s/$1 //" `"
+# }
+
+remove_spaces_in_filenames() {
+  if [ -z $1 ]; then echo "provide target directory"; return 1; fi
+
+  find "$1" -type f -name "* *" | while read -r FILE
+  do
+      mv -v "$FILE" `echo $FILE | tr ' ' '_' `
+  done
+}
+

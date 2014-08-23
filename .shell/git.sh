@@ -7,7 +7,7 @@ alias gpl='git fetch -p && git rebase'
 alias gps='git push'
 alias gpsu='git push -u'
 alias ga='git add --all'
-alias gm='git merge'
+alias gm='git merge --no-ff'
 alias gco='git checkout'
 alias gcom='git checkout master'
 alias gcb='git checkout -b'
@@ -44,7 +44,7 @@ alias gstl='git stash list'
 alias gsts='git stash save -u'
 gsta() { git stash apply stash@{"${1:-0}"} }
 gstp() { git stash pop stash@{"${1:-0}"} }
-gstsh() { git stash show stash@{"${1:-0}"} }
+gstsh() { git stash show -p stash@{"${1:-0}"} }
 gstd() { git stash drop stash@{"${1:-0}"} }
 
 gitme() {

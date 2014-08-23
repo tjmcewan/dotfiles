@@ -21,3 +21,23 @@ openwithclear() {
   /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain system -domain user
   killall Finder
 }
+
+monthly_changelog() {
+  for app in $(bundler_apps); do
+    echo "$fg[green]# changes for $fg[magenta]$app: $reset_color"
+    cd $app
+    git log --oneline --since={$(first_of_last_month)} --no-merges
+    cd - > /dev/null
+    echo; echo
+  done
+}
+
+## this was a one-off for heartbleed, but could be handy to keep around
+# token_deploy() {
+#   sed -E -e "s/secret_token\ =\ \'(.+)\'/secret_token\ =\ $(rake_secret)/" -i '' config/initializers/secret_token.rb
+#   git add config/initializers/secret_token.rb
+#   git commit -m "update secret token"
+#   git push
+#   $(bundle_with_binstubs)
+#   cap staging deploy
+# }

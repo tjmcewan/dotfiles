@@ -5,6 +5,10 @@ gemclear () {
   for i in `gem list --no-versions`; do
     gem uninstall -aIx $i
   done
+}
+
+gem_refresh() {
+  $(gemclear)
   gem install rake bundler rspec # fuubar rubygems-bundler zeus
   if [ -e "./Gemfile" ]; then
     bundle install

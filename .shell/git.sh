@@ -7,7 +7,7 @@ alias gpl='git fetch -p && git rebase'
 alias gps='git push'
 alias gpsu='git push -u'
 alias ga='git add --all'
-alias gm='git merge --no-ff'
+alias gm='git merge'
 alias gco='git checkout'
 alias gcom='git checkout master'
 alias gcb='git checkout -b'
@@ -39,6 +39,8 @@ alias gcoh='git checkout HEAD --' # reverts changes for whatever file is passed
 alias gdmb='git diff $(git show-branch --merge-base)..HEAD'
 alias gdmbn='git diff $(git show-branch --merge-base)..HEAD --name-only'
 alias gap='git add -N . && git add -p'
+
+alias glog='git log --branches --remotes --graph --oneline --decorate'
 
 alias gstl='git stash list'
 alias gsts='git stash save -u'

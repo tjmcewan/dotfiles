@@ -6,7 +6,7 @@
 - `brew install zsh`
 - `echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells`
 - `chsh -s /usr/local/bin/zsh`
-- `git clone git@github.com:jobfutures/dotfiles.git ~/dotfiles`
+- `git clone git@github.com:tjmcewan/dotfiles.git ~/dotfiles`
 - `cd ~/dotfiles`
 - `for file in $(ls -A); do mv $file ../. ; done`
 - `cd .. && rm -r ./dotfiles`

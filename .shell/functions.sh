@@ -56,3 +56,5 @@ remove_spaces_in_filenames() {
   done
 }
 
+repl() { perl -pi -w -e "s/$1/$2/g;" * }
+replr() { perl -p -i -e "s/$1/$2/g" `grep -ril $1 *` }

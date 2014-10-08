@@ -4,23 +4,11 @@ alias rds='rake db:seed'
 alias rdtp='rake db:test:prepare'
 alias rdsl='rake db:structure:load'
 
-# Rails 2 and Rails 3 console
-rc () {
-  if [ -e "./script/console" ]; then
-    ./script/console --debugger $@
-  else
-    rails console $@
-  fi
-}
+rc () { rails console $@ }
+rs () { rails server --binding=127.0.0.1 $@ }
 
-# Rails 2 and Rails 3 server
-rs () {
-  if [ -e "./script/server" ]; then
-    ./script/server --debugger --binding=127.0.0.1 $@
-  else
-    rails server --binding=127.0.0.1 $@
-  fi
-}
+rct () { RAILS_ENV=test rails console $@ }
+rst () { RAILS_ENV=test rails server --binding=127.0.0.1 $@ }
 
 rails_versions() {
   filename=Gemfile.lock

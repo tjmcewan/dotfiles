@@ -30,8 +30,8 @@ alias gri='git rebase -i'
 alias grim='git rebase -i master'
 alias grc='git rebase --continue'
 alias gra='git rebase --abort'
-alias gsh='git show HEAD'
-alias gshn='git show HEAD --name-only'
+gsh() { git show ${1:-HEAD} }
+gshn() { git show ${1:-HEAD} --name-only }
 alias ge='git edit' # edit function in ~/.gitconfig
 alias gx='gitx'
 alias gcoh='git checkout HEAD --' # reverts changes for whatever file is passed

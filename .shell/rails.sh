@@ -4,6 +4,8 @@ alias rds='rake db:seed'
 alias rdtp='rake db:test:prepare'
 alias rdsl='rake db:structure:load'
 
+gg () { cat Gemfile.lock | grep $1 }
+
 rc () { rails console $@ }
 rs () { rails server --binding=127.0.0.1 $@ }
 

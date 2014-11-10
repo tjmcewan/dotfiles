@@ -3,8 +3,7 @@ alias bo='bundle open'
 alias be='bundle exec'
 alias bu='bundle update'
 alias berk='bundle exec rake'
-
-ber() { bundle exec rspec "${@:-./spec}" }
+alias ber='bundle exec rspec'
 
 bundler_apps() {
   find . -name Gemfile -print | sed 's/Gemfile//'

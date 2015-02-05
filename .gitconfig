@@ -9,7 +9,7 @@
 [push]
 	default = current
 [rerere]
-	enabled = false
+	enabled = true
 [url "https://github.com/"]
 	insteadOf = git://github.com/
 [branch]

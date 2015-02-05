@@ -16,7 +16,11 @@ gem_refresh() {
 }
 
 gemack () {
-  ack --type=ruby "$@" $GEM_HOME
+  if [ -e "./Gemfile" ]; then
+    ack --type=ruby "$@" `bundle show --paths`
+  else
+    ack --type=ruby "$@" $GEM_HOME
+  fi
 }
 
 ruby_versions() {

@@ -26,6 +26,7 @@
 	pl = !git fetch -p && git rebase
 	pr = "!f() { git remote -v | grep origin -m 1 | cut -d":" -f2 | cut -d"/" -f1 ; }; g() { git symbolic-ref --short HEAD ; }; hub pull-request -h `f`:`g`"
   um = !git branch -r --no-merged | grep -v HEAD | xargs -L1 git --no-pager log --abbrev-commit --pretty=tformat:'%Cgreen%d%Creset | %h | %an | %Cred%ar%Creset' -1 | column -t -s '|'
+	l = log --graph --oneline --decorate
 [credential]
 	helper = osxkeychain
 [diff]

@@ -10,7 +10,7 @@ e() { $EDITOR "${@:-.}" }
 
 # kill cloud services that use your 3G data
 cloud_off () {
-  for process in Cloud Dropbox "Google Drive" Droplr Minbox
+  for process in CloudApp Dropbox "Google Drive"
   do
     ps acx | grep "$process$" | awk '{ print $1 }' | xargs kill -15
   done

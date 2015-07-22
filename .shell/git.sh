@@ -46,7 +46,7 @@ alias gap='git add -N . && git add -p'
 alias glog='git log --branches --remotes --graph --oneline --decorate'
 
 alias gstl='git stash list'
-gsts() { git add --all; git stash save } # --untracked on `save` works, but the untracked files don't `show`, so track them first
+gsts() { git add --all; git stash save $1 } # --untracked on `save` works, but the untracked files don't `show`, so track them first
 gsta() { git stash apply stash@{"${1:-0}"} }
 gstp() { git stash pop stash@{"${1:-0}"} }
 gstsh() { git stash show -p stash@{"${1:-0}"} }

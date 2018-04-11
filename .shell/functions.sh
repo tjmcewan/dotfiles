@@ -58,3 +58,5 @@ remove_spaces_in_filenames() {
 
 repl() { perl -pi -w -e "s/$1/$2/g;" * }
 replr() { perl -p -i -e "s/$1/$2/g" `grep -ril $1 *` }
+
+clean_ds_store() { find . -name '.DS_Store' -delete }

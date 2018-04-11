@@ -1,12 +1,12 @@
 exclude_patterns() {
   exclude="-false" # need to start the list somewhere so we have the right number of "-or"
 
-  for exclude_folder in '.git' '.bundle' 'tmp' 'log'; do
+  for exclude_folder in '.git' '.bundle' 'tmp' 'log' '.sass-cache'; do
     exclude="$exclude -or -name $exclude_folder -prune"
   done
 
   # hm, time to switch to whitelist?
-  for exclude_file in 'Gemfile.lock' 'structure.sql' '*.gif' '*.jpg' '*.png' '*jquery*' '*.doc' '*.pdf' '*.zip' '*.ico' '*.swf' '*.sqlite' '*.ttf' '*.csv' '*.otf' '*.svg' '*.woff' '*.ai' '*.eps' '*.psd' '*.xlsx'; do
+  for exclude_file in 'Gemfile.lock' 'structure.sql' '*.gif' '*.jpg' '*.png' '*jquery*' '*.doc' '*.pdf' '*.zip' '*.ico' '*.swf' '*.sqlite' '*.ttf' '*.csv' '*.otf' '*.svg' '*.woff' '*.ai' '*.eps' '*.psd' '*.xlsx' '.DS_Store'; do
     exclude="$exclude -or -iname $exclude_file"
   done
 
@@ -26,7 +26,7 @@ normalise_files() {
     # whitespace & newline at EOF: sed
     # tabs -> 2 spaces: expand
     echo $file
-    printf '%s' "`cat $file`" | tr '\r\n' '\n' | tr '\r' '\n' | sed -E 's/[[:blank:]]+$//' | expand -t 2 > "$file.tmp"
+    printf '%s' "`cat $file`" | tr -d '\r' | sed -E 's/[[:blank:]]+$//' | expand -t 2 > "$file.tmp"
     mv "$file.tmp" "$file"
   done < <(code_file_list $@)
 

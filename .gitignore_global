@@ -41,3 +41,5 @@ Thumbs.db
 .bundle
 .jshintrc
 coffeelint.json
+node_modules
+.byebug_history

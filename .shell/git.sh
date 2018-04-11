@@ -4,10 +4,10 @@ alias gcm='git commit -m'
 alias gca='git commit --amend'
 alias gs='git status -sb'
 alias gpl='git fetch -p && git rebase -p'
-alias gps='[[ $(git config "branch.$(git rev-parse --abbrev-ref HEAD).merge") = "" ]] && git push -u || git push'
 alias ga='git add --all'
-alias gm='git merge'
+alias gm='git merge --no-ff'
 alias gmom='git merge origin/master'
+alias gmum='git merge upstream/master'
 alias gco='git checkout'
 alias gcom='git checkout master'
 alias gcb='git checkout -b'
@@ -16,7 +16,7 @@ alias gba='git branch -a'
 alias gbd='git branch -d'
 alias gf='git fetch --prune --tags'
 alias gr='git reset'
-alias grom='git reset origin/master'
+# alias grom='git reset origin/master'
 alias gd='git diff'
 alias gdw='git diff --word-diff'
 alias gdc='git diff --cached'
@@ -31,10 +31,12 @@ alias gl='git log'
 alias gcp='git cherry-pick'
 alias gri='git rebase -i'
 alias grim='git rebase -i master'
+alias grom='git rebase -i -p origin/master'
 alias grc='git rebase --continue'
 alias gra='git rebase --abort'
 gsh() { git show ${1:-HEAD} }
 gshn() { git show ${1:-HEAD} --name-only }
+gshw() { git show ${1:-HEAD} --word-diff }
 alias ge='git edit' # edit function in ~/.gitconfig
 alias gx='gitx'
 alias gcoh='git checkout HEAD --' # reverts changes for whatever file is passed
@@ -44,6 +46,15 @@ alias gdmbn='git diff $(git show-branch --merge-base)..HEAD --name-only'
 alias gap='git add -N . && git add -p'
 
 alias glog='git log --branches --remotes --graph --oneline --decorate'
+
+# alias gp='git push'
+# gps() {
+#   ([[ $(git config "branch.$(git rev-parse --abbrev-ref HEAD).merge") = "" ]] && git push -u $@) || git push $@
+# }
+# alias gps='f(){([[ $(git config "branch.$(git rev-parse --abbrev-ref HEAD).merge") = "" ]] && git push -u $@) || git push $@};f'
+# alias gps='([[ $(git config "branch.$(git rev-parse --abbrev-ref HEAD).merge") = "" ]] && git push -u) || git push'
+alias gps='git push'
+
 
 alias gstl='git stash list'
 gsts() { git add --all; git stash save $1 } # --untracked on `save` works, but the untracked files don't `show`, so track them first

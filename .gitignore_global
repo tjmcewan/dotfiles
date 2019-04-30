@@ -25,6 +25,10 @@
 *.log
 *.sqlite
 
+# config #
+######################
+.env
+
 # OS generated files #
 ######################
 .DS_Store
@@ -43,3 +47,7 @@ Thumbs.db
 coffeelint.json
 node_modules
 .byebug_history
+.vscode
+
+# project specific (can't/won't commit)
+application/src/ecologic/static/

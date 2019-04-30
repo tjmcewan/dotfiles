@@ -3,7 +3,7 @@
 	email = tim@mcewan.it
 [core]
 	excludesfile = /Users/tim/.gitignore_global
-	editor = subl -w
+	editor = $EDITOR -w
 	ignorecase = false
 [color]
 	ui = true

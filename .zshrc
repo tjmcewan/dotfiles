@@ -1,21 +1,26 @@
-PATH="$HOME/usr/local/bin:/usr/local/sbin:$PATH"
+PATH="$HOME/.local/bin:$HOME/usr/local/bin:/usr/local/sbin:$PATH"
 # PATH="$PATH:$HOME/.rvm/bin"
 # PATH="$(pyenv root)/shims:$PATH"
 # PATH="/.cabal/bin:$PATH"
 PATH="/usr/local/heroku/bin:$PATH"
 PATH="/usr/local/share/npm/bin:$PATH"
 
-PATH="/Users/tim/Applications/bin:$PATH"
-PATH="/Users/tim/.shell/scripts:$PATH"
+PATH="$HOME/Applications/bin:$PATH"
+PATH="$HOME/.shell/scripts:$PATH"
 PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+
+# data science
+PATH="/usr/local/anaconda3/bin:$PATH"
+
 # GNU utils
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 LOCAL_BINS="./bin:./.bundle/bin:./.bundle/binstubs:./node_modules/.bin"
-export PATH="$LOCAL_BINS:$PATH"
+GLOBAL_ELM="/usr/local/bin/elm"
+export PATH="$LOCAL_BINS:$GLOBAL_ELM:$PATH"
 
 export EDITOR='code'
 
@@ -62,19 +67,8 @@ unset file
 eval "$(rbenv init -)"
 export NVM_AUTO_USE=true  # auto switches node version when `cd`ing
 export NVM_LAZY_LOAD=true # faster startup time, but breaks NVM_AUTO_USE
-export NVM_DIR="/Users/tim/.nvm"
+export NVM_DIR="$HOME/.nvm"
 source ~/.zsh-nvm/zsh-nvm.plugin.zsh
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # trad. way to load nvm
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/tim/.nvm/versions/node/v10.11.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/tim/.nvm/versions/node/v10.11.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/tim/.nvm/versions/node/v10.11.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/tim/.nvm/versions/node/v10.11.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/tim/getup/dynosaur/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/tim/getup/dynosaur/node_modules/tabtab/.completions/slss.zsh

@@ -22,5 +22,5 @@ alias gam="/Users/tim/bin/gam/gam"
 
 alias yaml2json="python -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=4)'"
 
-alias dnsflush="sudo killall -HUP mDNSResponder"
+alias dnsflush="sudo killall mDNSResponder mDNSResponderHelper"
 alias flushdns="dnsflush"

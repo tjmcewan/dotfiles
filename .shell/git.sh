@@ -6,30 +6,30 @@ alias gs='git status -sb'
 alias gpl='git fetch -p && git rebase -r'
 alias ga='git add --all'
 alias gm='git merge --no-ff'
-alias gmom='git merge origin/master --ff'
-alias gmum='git merge upstream/master'
+alias gmom='git merge origin/main --ff'
+alias gmum='git merge upstream/main'
 alias gco='git checkout'
-alias gcom='git checkout master'
+alias gcom='git checkout main'
 alias gcb='git checkout -b'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gbd='git branch -d'
 alias gf='git fa'
 alias gr='git reset'
-# alias grom='git reset origin/master'
+# alias grom='git reset origin/main'
 gd() { git diff ${1:-} | diff-so-fancy | less --tabs=4 -RFX }
 gdc() { git diff --cached ${1:-} | diff-so-fancy | less --tabs=4 -RFX }
-gdm() { git diff master | diff-so-fancy | less --tabs=4 -RFX }
-gdom() { git diff origin/master | diff-so-fancy | less --tabs=4 -RFX }
-gdomn() { git diff --name-only origin/master | diff-so-fancy | less --tabs=4 -RFX }
+gdm() { git diff main "${@:-.}" | diff-so-fancy | less --tabs=4 -RFX }
+gdom() { git diff origin/main | diff-so-fancy | less --tabs=4 -RFX }
+gdomn() { git diff --name-only origin/main | diff-so-fancy | less --tabs=4 -RFX }
 gdn() { git diff --name-only ${1:-} | diff-so-fancy | less --tabs=4 -RFX }
 gdcn() { git diff --name-only --cached ${1:-}  | diff-so-fancy | less --tabs=4 -RFX }
-gdmn() { git diff --name-only master | diff-so-fancy | less --tabs=4 -RFX }
+gdmn() { git diff --name-only main | diff-so-fancy | less --tabs=4 -RFX }
 alias gl='git log'
 alias gcp='git cherry-pick'
 alias gri='git rebase -ir'
-alias grim='git rebase -ir master'
-alias grom='git rebase -ir origin/master'
+alias grim='git rebase -ir main'
+alias grom='git rebase -ir origin/main'
 alias grc='git rebase --continue'
 alias gra='git rebase --abort'
 gsh() { git show ${1:-HEAD} }
@@ -77,7 +77,7 @@ update_repos() {
     cd $repo
     echo "$fg[green]# updating $fg[magenta]$repo $reset_color"
     git fetch -p
-    git checkout master && git rebase
+    git checkout main && git rebase
     git checkout -
     cd - 1>/dev/null
     echo ""
@@ -98,7 +98,7 @@ export bash_update_repo='() {
   cd $1
   echo "# updating $1"
   git fetch -p
-  git checkout master && git rebase
+  git checkout main && git rebase
   git checkout -
 }'
 

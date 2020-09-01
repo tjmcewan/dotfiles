@@ -48,6 +48,8 @@ coffeelint.json
 node_modules
 .byebug_history
 .vscode
+elm-stuff
+lamdera-stuff
 
 # project specific (can't/won't commit)
 application/src/ecologic/static/

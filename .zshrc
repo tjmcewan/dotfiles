@@ -12,7 +12,7 @@ PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 
 # data science
-PATH="/usr/local/anaconda3/bin:$PATH"
+# PATH="/usr/local/anaconda3/bin:$PATH"
 
 # GNU utils
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
@@ -64,11 +64,14 @@ for file in ~/.shell/*.sh; do
 done
 unset file
 
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 eval "$(rbenv init -)"
-export NVM_AUTO_USE=true  # auto switches node version when `cd`ing
-export NVM_LAZY_LOAD=true # faster startup time, but breaks NVM_AUTO_USE
+export NVM_AUTO_USE=true # auto switches node version when `cd`ing
+# export NVM_LAZY_LOAD=true # faster startup time, but breaks NVM_AUTO_USE
 export NVM_DIR="$HOME/.nvm"
 source ~/.zsh-nvm/zsh-nvm.plugin.zsh
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # trad. way to load nvm
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+gam() { "$HOME/bin/gam/gam" "$@"; }

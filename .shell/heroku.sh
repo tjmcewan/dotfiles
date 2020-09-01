@@ -1,2 +1,3 @@
 alias h='heroku'
-alias gphm='git push heroku HEAD:master'
+alias hl='heroku login'
+alias gphm='git push heroku HEAD:main'

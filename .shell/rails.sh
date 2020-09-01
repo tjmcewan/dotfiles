@@ -1,4 +1,4 @@
-alias rddm='rake db:drop; rake db:create; rake db:migrate'
+alias rdcm='rake db:drop; rake db:create; rake db:migrate'
 alias rdm='rake db:migrate'
 alias rds='rake db:seed'
 alias rdtp='rake db:test:prepare'

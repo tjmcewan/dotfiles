@@ -53,3 +53,8 @@ lamdera-stuff
 
 # project specific (can't/won't commit)
 application/src/ecologic/static/
+
+# nix / direnv stuff
+*.nix
+.envrc
+.direnv

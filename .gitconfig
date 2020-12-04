@@ -5,6 +5,7 @@
 	excludesfile = /Users/tim/.gitignore_global
 	editor = $EDITOR -w
 	ignorecase = false
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
 	ui = true
 [push]
@@ -27,7 +28,7 @@
 	rv = remote -v
 	pl = !git fetch -p && git rebase -p
 	pr = "!f() { git remote -v | grep origin -m 1 | cut -d":" -f2 | cut -d"/" -f1 ; }; g() { git symbolic-ref --short HEAD ; }; hub pull-request -h `f`:`g`"
-  um = !git branch -r --no-merged | grep -v HEAD | xargs -L1 git --no-pager log --abbrev-commit --pretty=tformat:'%Cgreen%d%Creset | %h | %an | %Cred%ar%Creset' -1 | column -t -s '|'
+	um = !git branch -r --no-merged | grep -v HEAD | xargs -L1 git --no-pager log --abbrev-commit --pretty=tformat:'%Cgreen%d%Creset | %h | %an | %Cred%ar%Creset' -1 | column -t -s '|'
 	l = log --graph --oneline --decorate
 	fa = "!for r in $(git remote); do echo \">>> fetching remote \\\"$r\\\"\" && git fetch --prune --tags $r; done"
 [credential]
@@ -37,12 +38,13 @@
 	compactionHeuristic = true
 [init]
 	templatedir = ~/.git-templates
-[pager]
-	log = diff-highlight | less
-	show = diff-highlight | less
-	diff = diff-highlight | less
-[interactive]
-	diffFilter = diff-highlight
+	defaultBranch = main
+# [pager]
+# 	log = diff-highlight | less
+# 	show = diff-highlight | less
+# 	diff = diff-highlight | less
+# [interactive]
+# 	diffFilter = diff-highlight
 [pull]
 	rebase = true
 [filter "lfs"]
@@ -50,11 +52,11 @@
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+# [color "diff-highlight"]
+# 	oldNormal = red bold
+# 	oldHighlight = red bold 52
+# 	newNormal = green bold
+# 	newHighlight = green bold 22
 [color "diff"]
 	meta = 11
 	frag = magenta bold
